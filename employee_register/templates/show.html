@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Records</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+</head>
+<body>
+<div class="container mt-5">
+<table class="table  table-bordered table-sm">
+    <thead class="thead-light">
+    <tr style="height:40px;padding:5px;">
+
+        <th>Employee Name</th>
+        <th>Employee Email</th>
+        <th>Employee Contact</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for employee in employees %}
+    <tr>
+
+        <td>{{ employee.ename }}</td>
+        <td>{{ employee.eemail }}</td>
+        <td>{{ employee.econtact }}</td>
+        <td>
+            <a href="/edit/{{ employee.id }}"  class="btn btn-success btn-sm">Edit</span></a>
+            <a href="/delete/{{ employee.id }}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+</div>
+<br>
+<br>
+<center><a href="/emp" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>
